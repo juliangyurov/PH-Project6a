@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     var countries = [String]()
     var score = 0
     var correctAnswer = 0
+    var tries = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,19 +46,24 @@ class ViewController: UIViewController {
         button2.setImage(UIImage(named: countries[1]), for: .normal)
         button3.setImage(UIImage(named: countries[2]), for: .normal)
         
-        title = countries[correctAnswer].uppercased()
+        
+        title = "Tap flag for: " + countries[correctAnswer].uppercased() + " /score:\(score)/"
     }
     @IBAction func buttonTapped(_ sender: UIButton) {
         var title: String
+        var correctFlag: Bool
         
         if sender.tag == correctAnswer{
+            correctFlag = true
             title = "Correct"
             score += 1
         }else{
+            correctFlag = false
             title = "Wrong"
             score -= 1
         }
-        let ac = UIAlertController(title: title, message: "Your score is \(score)", preferredStyle: .alert)
+        tries+=1
+        let ac = UIAlertController(title: title, message: "\( correctFlag ? "" : "That is the flag of \(countries[sender.tag].uppercased())\n" )\nYour score is \(score)\n\(tries%10==0 ? "Complete 10 flags" : "")", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
         present(ac, animated: true)
     }
