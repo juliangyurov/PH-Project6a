@@ -27,13 +27,12 @@ class ViewController: UIViewController {
         button1.layer.borderWidth = 1
         button2.layer.borderWidth = 1
         button3.layer.borderWidth = 1
-        button1.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
-        button2.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
-        button3.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
-        
         button1.layer.borderColor = UIColor.lightGray.cgColor
         button2.layer.borderColor = UIColor.lightGray.cgColor
         button3.layer.borderColor = UIColor.lightGray.cgColor
+        button1.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+        button2.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+        button3.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
         
         askQuestion()
     }
@@ -47,23 +46,35 @@ class ViewController: UIViewController {
         button3.setImage(UIImage(named: countries[2]), for: .normal)
         
         
-        title = "Tap flag for: " + countries[correctAnswer].uppercased() + " /score:\(score)/"
+        //title = "Tap flag for: " + countries[correctAnswer].uppercased() + " /score:\(score)/"
+        let label: UILabel = UILabel(frame: CGRectMake(0, 0, 400, 50))
+        label.backgroundColor = UIColor.placeholderText
+        label.numberOfLines = 2
+        label.font = UIFont.boldSystemFont(ofSize: 16.0)
+        label.textAlignment = .center
+        label.textColor = UIColor.label
+        label.text = "Tap flag for: " + countries[correctAnswer].uppercased() + "\nscore:\(score)"
+        self.navigationItem.titleView = label
     }
+    
     @IBAction func buttonTapped(_ sender: UIButton) {
         var title: String
-        var correctFlag: Bool
+        var wrongFlagText: String = ""
+        var completed10FlagText: String = ""
         
         if sender.tag == correctAnswer{
-            correctFlag = true
             title = "Correct"
             score += 1
         }else{
-            correctFlag = false
             title = "Wrong"
             score -= 1
+            wrongFlagText = "That is the flag of \(countries[sender.tag].uppercased())\n"
         }
         tries+=1
-        let ac = UIAlertController(title: title, message: "\( correctFlag ? "" : "That is the flag of \(countries[sender.tag].uppercased())\n" )\nYour score is \(score)\n\(tries%10==0 ? "Complete 10 flags" : "")", preferredStyle: .alert)
+        completed10FlagText = tries%10==0 ? "Complete 10 flags" : ""
+        let ac = UIAlertController(title: title,
+                                   message: "\( wrongFlagText )\nYour score is \(score)\n\(completed10FlagText)",
+                                   preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
         present(ac, animated: true)
     }
