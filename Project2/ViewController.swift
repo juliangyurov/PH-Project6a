@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     var score = 0
     var correctAnswer = 0
     var tries = 0
+    var correctGuesses = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,8 @@ class ViewController: UIViewController {
         button1.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
         button2.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
         button3.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(showScore))
         
         askQuestion()
     }
@@ -65,6 +68,7 @@ class ViewController: UIViewController {
         if sender.tag == correctAnswer{
             title = "Correct"
             score += 1
+            correctGuesses += 1
         }else{
             title = "Wrong"
             score -= 1
@@ -76,6 +80,14 @@ class ViewController: UIViewController {
                                    message: "\( wrongFlagText )\nYour score is \(score)\n\(completed10FlagText)",
                                    preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
+        present(ac, animated: true)
+    }
+    
+    @objc func showScore(){
+        let ac = UIAlertController(title: "Guessed Flags",
+                                   message: "Your score is \(score)\nCorrect Answers: \(correctGuesses)\nNumber of games: \(tries)",
+                                   preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Continue", style: .default))
         present(ac, animated: true)
     }
     
