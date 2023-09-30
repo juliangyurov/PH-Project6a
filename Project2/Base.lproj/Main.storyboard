@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f3O-g0-vkW">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -16,8 +17,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGv-fv-8Bd">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGv-fv-8Bd">
                                 <rect key="frame" x="84.666666666666686" y="110" width="224" height="114"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="LGv-fv-8Bd" secondAttribute="height" multiplier="112:57" id="lyM-Ej-H8p"/>
+                                </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="us"/>
                                 <buttonConfiguration key="configuration" style="plain" image="us"/>
@@ -25,8 +29,11 @@
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zv3-mT-97F"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPr-Hg-xI2">
+                            <button opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPr-Hg-xI2">
                                 <rect key="frame" x="84.666666666666686" y="254" width="224" height="114"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="UPr-Hg-xI2" secondAttribute="height" multiplier="112:57" id="D41-zH-DI0"/>
+                                </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="us"/>
                                 <buttonConfiguration key="configuration" style="plain" image="us"/>
@@ -34,8 +41,11 @@
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="exd-DW-wXZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQ9-tk-wq5">
+                            <button opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQ9-tk-wq5">
                                 <rect key="frame" x="84.666666666666686" y="398" width="224" height="114"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="nQ9-tk-wq5" secondAttribute="height" multiplier="112:57" id="051-FF-qzO"/>
+                                </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="us"/>
                                 <buttonConfiguration key="configuration" style="plain" image="us"/>
@@ -48,10 +58,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="LGv-fv-8Bd" secondAttribute="top" constant="-7" id="6IS-HG-KUD"/>
+                            <constraint firstItem="UPr-Hg-xI2" firstAttribute="height" secondItem="LGv-fv-8Bd" secondAttribute="height" id="FDF-Sr-tiQ"/>
                             <constraint firstItem="UPr-Hg-xI2" firstAttribute="centerX" secondItem="LGv-fv-8Bd" secondAttribute="centerX" id="PuF-KL-CCB"/>
                             <constraint firstItem="nQ9-tk-wq5" firstAttribute="centerX" secondItem="UPr-Hg-xI2" secondAttribute="centerX" id="SyF-cX-Q7K"/>
                             <constraint firstItem="nQ9-tk-wq5" firstAttribute="top" secondItem="UPr-Hg-xI2" secondAttribute="bottom" constant="30" id="Xx2-Er-bG7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="nQ9-tk-wq5" secondAttribute="bottom" constant="20" id="YBJ-lB-zoe"/>
                             <constraint firstItem="LGv-fv-8Bd" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="dbs-Qx-aM3"/>
+                            <constraint firstItem="nQ9-tk-wq5" firstAttribute="height" secondItem="UPr-Hg-xI2" secondAttribute="height" id="nJV-2S-Lg8"/>
                             <constraint firstItem="UPr-Hg-xI2" firstAttribute="top" secondItem="LGv-fv-8Bd" secondAttribute="bottom" constant="30" id="tYl-2F-roa"/>
                         </constraints>
                     </view>
