@@ -1,4 +1,4 @@
-## Project 6: Auto Layout
+## [Project 6: Auto Layout](https://www.hackingwithswift.com/read/6/overview)
 
 **Description:** Get to grips with Auto Layout using practical examples and code.
 
