@@ -1,4 +1,5 @@
 ## [Project 6: Auto Layout](https://www.hackingwithswift.com/read/6/overview)
+Written by [Paul Hudson](https://www.hackingwithswift.com/about)     [@twostraws](https://twitter.com/twostraws)
 
 **Description:** Get to grips with Auto Layout using practical examples and code.
 
